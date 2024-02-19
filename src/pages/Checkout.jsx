@@ -5,9 +5,28 @@ import { Discount, InitialView, PaymentView } from "../containers";
 import { BaseLayout, LeftSlide, RightSlide } from "../layouts";
 import { checkoutPageView } from "../constants/checkout";
 import { Link } from "react-router-dom";
+import { countries } from "../constants/countries";
 
 export const Checkout = () => {
   const [view, setView] = useState(checkoutPageView.INITIAL);
+  const [formData, setFormData] = useState({
+    email: "",
+    country: countries[0].value,
+    firstName: "",
+    lastName: "",
+    address: "",
+    apartment: "",
+    city: "",
+    state: "",
+    zipCode: "",
+    phone: "",
+  });
+
+  const handleChnage = (e) => {
+    const { id, value } = e.target;
+
+    setFormData({ ...formData, [id]: value });
+  };
 
   const toggleView = (view) => {
     setView(view);
@@ -37,10 +56,18 @@ export const Checkout = () => {
           <Logo />
           <Breadcrumb items={breadcumbItems} />
           {view === checkoutPageView.INITIAL && (
-            <InitialView toggleView={toggleView} />
+            <InitialView
+              toggleView={toggleView}
+              formData={formData}
+              handleChnage={handleChnage}
+            />
           )}
           {view === checkoutPageView.PAYMENT && (
-            <PaymentView toggleView={toggleView} />
+            <PaymentView
+              toggleView={toggleView}
+              formData={formData}
+              handleChnage={handleChnage}
+            />
           )}
           <div className="checkout-footer-link w-100 d-block">
             <Link href="#">Refund policy</Link>
