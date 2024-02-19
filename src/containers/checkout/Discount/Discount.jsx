@@ -30,16 +30,13 @@ const Discount = () => {
       </div>
       <div className="total-box-row w-100 d-block">
         <div className="data-row w-100 d-flex flex-wrap justify-content-between">
-          {" "}
-          <span>Subtotal</span> <span>$99.00</span>{" "}
+          <span>Subtotal</span> <span>$99.00</span>
         </div>
         <div className="data-row w-100 d-flex flex-wrap justify-content-between">
-          {" "}
-          <span>Shipping</span> <span>Free</span>{" "}
+          <span>Shipping</span> <span>Free</span>
         </div>
         <div className="data-row w-100 d-flex flex-wrap justify-content-between total">
-          {" "}
-          <span>Total</span> <span>USD $99.00</span>{" "}
+          <span>Total</span> <span>USD $99.00</span>
         </div>
       </div>
     </>

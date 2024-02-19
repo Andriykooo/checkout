@@ -92,7 +92,12 @@ const PaymentView = ({ toggleView }) => {
         <div className="radio-button-row w-100 d-block">
           <label className="control control-radio">
             Same as shipping address
-            <input type="radio" name="billing-address" checked="checked" />
+            <input
+              type="radio"
+              name="billing-address"
+              checked="checked"
+              onChange={() => {}}
+            />
             <div className="control-indicator"></div>
           </label>
           <label className="control control-radio">

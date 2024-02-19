@@ -25,11 +25,11 @@ export const Checkout = () => {
 
   return (
     <BaseLayout>
-      <div class="mobile-data w-100 d-block d-lg-none">
+      <div className="mobile-data w-100 d-block d-lg-none">
         <Logo className="m-auto d-block" />
         <Breadcrumb items={breadcumbItems} />
       </div>
-      <div class="d-flex flex-wrap w-100">
+      <div className="d-flex flex-wrap w-100">
         <RightSlide>
           <Discount />
         </RightSlide>
@@ -42,7 +42,7 @@ export const Checkout = () => {
           {view === checkoutPageView.PAYMENT && (
             <PaymentView toggleView={toggleView} />
           )}
-          <div class="checkout-footer-link w-100 d-block">
+          <div className="checkout-footer-link w-100 d-block">
             <Link href="#">Refund policy</Link>
             <Link href="#">Shipping policy</Link>
             <Link href="#">Privacy policy </Link>
