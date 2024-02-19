@@ -1,29 +1,32 @@
-const PaymentView = () => {
+import { Link } from "react-router-dom";
+import { checkoutPageView } from "../../../constants/checkout";
+
+const PaymentView = ({ toggleView }) => {
+  const handleToggleView = () => {
+    toggleView(checkoutPageView.INITIAL);
+  };
   return (
     <>
       <div className="payment-top w-100 d-block">
         <ul>
           <li className="d-flex w-100 flex-wrap justify-content-between">
-            {" "}
-            <span className="left-text">Contact</span>{" "}
+            <span className="left-text">Contact</span>
             <span>
-              <a href="#">Change</a>
-            </span>{" "}
+              <Link href="#">Change</Link>
+            </span>
           </li>
           <li className="d-flex w-100 flex-wrap justify-content-between">
-            {" "}
-            <span className="left-text">Ship to</span>{" "}
+            <span className="left-text">Ship to</span>
             <span>
-              <a href="#">Change</a>
-            </span>{" "}
+              <Link href="#">Change</Link>
+            </span>
           </li>
           <li className="d-flex w-100 flex-wrap justify-content-between">
-            {" "}
-            <span className="left-text">Shipping method</span>{" "}
-            <span>Standard</span>{" "}
+            <span className="left-text">Shipping method</span>
+            <span>Standard</span>
             <span>
-              <a href="#">Change</a>
-            </span>{" "}
+              <Link href="#">Change</Link>
+            </span>
           </li>
         </ul>
       </div>
@@ -32,11 +35,10 @@ const PaymentView = () => {
         <p> All transactions are secure and encrypted. </p>
         <div className="payment-card-box w-100 d-block">
           <div className="payment-card-box-top w-100 d-flex flex-wrap justify-content-between">
-            {" "}
-            <span>Credit card </span>{" "}
+            <span>Credit card </span>
             <span>
               <img src="images/card-logo.jpg" alt="" className="img-fluid" />
-            </span>{" "}
+            </span>
           </div>
           <div className="payment-card-box-data w-100 d-block">
             <div className="row gx-3">
@@ -110,8 +112,7 @@ const PaymentView = () => {
                       data-pure-numeric-postal-code="false"
                       value="United States"
                     >
-                      {" "}
-                      United States{" "}
+                      United States
                     </option>
                   </select>
                 </div>
@@ -379,7 +380,7 @@ const PaymentView = () => {
       </div>
       <div className="btn-row w-100 d-flex justify-content-between">
         <div className="back-link">
-          <a href="#">
+          <Link href="#" onClick={handleToggleView}>
             <svg
               focusable="false"
               aria-hidden="true"
@@ -391,14 +392,9 @@ const PaymentView = () => {
               <path d="M8 1L7 0 3 4 2 5l1 1 4 4 1-1-4-4"></path>
             </svg>
             Return to shipping
-          </a>
+          </Link>
         </div>
         <button className="checkout-btn">Checkout now</button>
-      </div>
-      <div className="checkout-footer-link w-100 d-block">
-        {" "}
-        <a href="#">Refund policy</a> <a href="#">Shipping policy</a>{" "}
-        <a href="#">Privacy policy</a> <a href="#">Terms of service</a>{" "}
       </div>
     </>
   );

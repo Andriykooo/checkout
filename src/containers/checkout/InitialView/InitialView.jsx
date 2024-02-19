@@ -1,4 +1,10 @@
-const InitialView = () => {
+import { checkoutPageView } from "../../../constants/checkout";
+
+const InitialView = ({ toggleView }) => {
+  const handleToggleView = () => {
+    toggleView(checkoutPageView.PAYMENT);
+  };
+
   return (
     <>
       <div class="left-top-row w-100 d-flex flex-wrap justify-content-between">
@@ -31,8 +37,7 @@ const InitialView = () => {
                     data-pure-numeric-postal-code="false"
                     value="United States"
                   >
-                    {" "}
-                    United States{" "}
+                    United States
                   </option>
                 </select>
               </div>
@@ -281,13 +286,11 @@ const InitialView = () => {
             </div>
           </div>
           <div class="btn-row w-100 d-flex justify-content-end">
-            <button class="checkout-btn">Continue to payment</button>
+            <button class="checkout-btn" onClick={handleToggleView}>
+              Continue to payment
+            </button>
           </div>
         </div>
-      </div>
-      <div class="checkout-footer-link w-100 d-block">
-        <a href="#">Refund policy</a> <a href="#">Shipping policy</a>{" "}
-        <a href="#">Privacy policy</a> <a href="#">Terms of service</a>{" "}
       </div>
     </>
   );
