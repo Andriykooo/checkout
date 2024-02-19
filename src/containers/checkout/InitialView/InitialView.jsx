@@ -1,20 +1,78 @@
+import { useState } from "react";
+import { FormControl } from "../../../components";
 import { checkoutPageView } from "../../../constants/checkout";
 
+const validateEmailRegex = /^\S+@\S+\.\S+$/;
+
 const InitialView = ({ toggleView }) => {
+  const [formData, setFormData] = useState({
+    email: "",
+    country: "",
+    firstName: "",
+    lastName: "",
+    address: "",
+    apartment: "",
+    city: "",
+    state: "",
+    zipCode: "",
+    phone: "",
+  });
+
   const handleToggleView = () => {
     toggleView(checkoutPageView.PAYMENT);
   };
+
+  const handleChnage = (e) => {
+    const { id, value } = e.target;
+
+    setFormData({ ...formData, [id]: value });
+  };
+
+  const validateForm = () => {
+    if (validateEmailRegex.test(formData.email)) {
+      return false;
+    }
+
+    if (!formData.lastName) {
+      return false;
+    }
+
+    if (!formData.address) {
+      return false;
+    }
+
+    if (!formData.city) {
+      return false;
+    }
+
+    if (!formData.state) {
+      return false;
+    }
+
+    if (!formData.zipCode) {
+      return false;
+    }
+
+    if (!formData.phone) {
+      return false;
+    }
+
+    return true;
+  };
+
+  const isValid = validateForm();
 
   return (
     <>
       <div class="left-top-row w-100 d-flex flex-wrap justify-content-between">
         <div class="checkout-title flex-auto">Contact</div>
         <div class="email-box w-100 d-block">
-          <input
+          <FormControl
             type="email"
             id="email"
-            class="form-control checkout"
             placeholder="Email"
+            className="checkout"
+            onChange={handleChnage}
           />
           <div class="checkbox-row w-100 d-block">
             <label class="control control-checkbox">
@@ -44,51 +102,56 @@ const InitialView = ({ toggleView }) => {
             </div>
             <div class="col-md-6">
               <div class="form-group">
-                <input
+                <FormControl
                   type="text"
-                  id="first-name"
-                  class="form-control checkout"
+                  id="firstName"
                   placeholder="First name (optional)"
+                  className="checkout"
+                  onChange={handleChnage}
                 />
               </div>
             </div>
             <div class="col-md-6">
               <div class="form-group">
-                <input
+                <FormControl
                   type="text"
-                  id="last-name"
-                  class="form-control checkout"
+                  id="lastName"
                   placeholder="Last name"
+                  className="checkout"
+                  onChange={handleChnage}
                 />
               </div>
             </div>
             <div class="col-md-12">
               <div class="form-group">
-                <input
+                <FormControl
                   type="text"
                   id="address"
-                  class="form-control checkout"
                   placeholder="Address"
+                  className="checkout"
+                  onChange={handleChnage}
                 />
               </div>
             </div>
             <div class="col-md-12">
               <div class="form-group">
-                <input
+                <FormControl
                   type="text"
                   id="apartment"
-                  class="form-control checkout"
                   placeholder="Apartment, suite, etc. (optional)"
+                  className="checkout"
+                  onChange={handleChnage}
                 />
               </div>
             </div>
             <div class="col-md-4">
               <div class="form-group">
-                <input
+                <FormControl
                   type="text"
                   id="city"
-                  class="form-control checkout"
                   placeholder="City"
+                  className="checkout"
+                  onChange={handleChnage}
                 />
               </div>
             </div>
@@ -266,27 +329,33 @@ const InitialView = ({ toggleView }) => {
             </div>
             <div class="col-md-4">
               <div class="form-group">
-                <input
+                <FormControl
                   type="text"
-                  id="zipCode	"
-                  class="form-control checkout"
+                  id="zipCode"
                   placeholder="Zip code"
+                  className="checkout"
+                  onChange={handleChnage}
                 />
               </div>
             </div>
             <div class="col-12">
               <div class="form-group">
-                <input
+                <FormControl
                   type="tel"
                   id="phone"
-                  class="form-control checkout"
                   placeholder="Phone"
+                  className="checkout"
+                  onChange={handleChnage}
                 />
               </div>
             </div>
           </div>
           <div class="btn-row w-100 d-flex justify-content-end">
-            <button class="checkout-btn" onClick={handleToggleView}>
+            <button
+              class="checkout-btn"
+              onClick={handleToggleView}
+              disabled={!isValid}
+            >
               Continue to payment
             </button>
           </div>
