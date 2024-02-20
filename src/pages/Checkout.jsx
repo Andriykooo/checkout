@@ -70,10 +70,10 @@ export const Checkout = () => {
             />
           )}
           <div className="checkout-footer-link w-100 d-block">
-            <Link href="#">Refund policy</Link>
-            <Link href="#">Shipping policy</Link>
-            <Link href="#">Privacy policy </Link>
-            <Link href="#">Terms of service</Link>
+            <a href="#">Refund policy</a>
+            <a href="#">Shipping policy</a>
+            <a href="#">Privacy policy </a>
+            <a href="#">Terms of service</a>
           </div>
         </LeftSlide>
       </div>

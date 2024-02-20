@@ -7,25 +7,25 @@ const PaymentView = ({ toggleView }) => {
   };
   return (
     <>
-      <div className="payment-top w-100 d-block">
+      <div className="payment-top w-100 d-block" data-testid="payment">
         <ul>
           <li className="d-flex w-100 flex-wrap justify-content-between">
             <span className="left-text">Contact</span>
             <span>
-              <Link href="#">Change</Link>
+              <a href="#">Change</a>
             </span>
           </li>
           <li className="d-flex w-100 flex-wrap justify-content-between">
             <span className="left-text">Ship to</span>
             <span>
-              <Link href="#">Change</Link>
+              <a href="#">Change</a>
             </span>
           </li>
           <li className="d-flex w-100 flex-wrap justify-content-between">
             <span className="left-text">Shipping method</span>
             <span>Standard</span>
             <span>
-              <Link href="#">Change</Link>
+              <a href="#">Change</a>
             </span>
           </li>
         </ul>
@@ -385,7 +385,7 @@ const PaymentView = ({ toggleView }) => {
       </div>
       <div className="btn-row w-100 d-flex justify-content-between">
         <div className="back-link">
-          <Link href="#" onClick={handleToggleView}>
+          <a href="#" onClick={handleToggleView}>
             <svg
               focusable="false"
               aria-hidden="true"
@@ -397,7 +397,7 @@ const PaymentView = ({ toggleView }) => {
               <path d="M8 1L7 0 3 4 2 5l1 1 4 4 1-1-4-4"></path>
             </svg>
             Return to shipping
-          </Link>
+          </a>
         </div>
         <button className="checkout-btn">Checkout now</button>
       </div>

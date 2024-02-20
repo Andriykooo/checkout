@@ -186,6 +186,7 @@ const InitialView = ({ toggleView, formData, handleChnage }) => {
           </div>
           <div className="btn-row w-100 d-flex justify-content-end">
             <button
+              data-testid="checkout-btn"
               className="checkout-btn"
               onClick={handleToggleView}
               disabled={!isValid}

@@ -13,6 +13,7 @@ const FormControl = ({
     <input
       type={type}
       id={id}
+      data-testid={id}
       name={name}
       className={classNames("form-control", className)}
       placeholder={placeholder}

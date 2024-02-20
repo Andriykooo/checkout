@@ -4,6 +4,7 @@ const FormSelect = ({ options, onChange, value, id, className }) => {
   return (
     <select
       id={id}
+      data-testid={id}
       className={classNames("form-select", className)}
       onChange={onChange}
       value={value}
