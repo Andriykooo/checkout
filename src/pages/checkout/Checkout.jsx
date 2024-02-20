@@ -1,13 +1,12 @@
 import { useState } from "react";
-import Breadcrumb from "../components/Breadcrumb/Breadcrumb";
-import Logo from "../components/Logo/Logo";
-import { Discount, InitialView, PaymentView } from "../containers";
-import { BaseLayout, LeftSlide, RightSlide } from "../layouts";
-import { checkoutPageView } from "../constants/checkout";
-import { Link } from "react-router-dom";
-import { countries } from "../constants/countries";
+import Breadcrumb from "../../components/Breadcrumb/Breadcrumb";
+import Logo from "../../components/Logo/Logo";
+import { Discount, InitialView, PaymentView } from "../../containers";
+import { BaseLayout, LeftSlide, RightSlide } from "../../layouts";
+import { checkoutPageView } from "../../constants/checkout";
+import { countries } from "../../constants/countries";
 
-export const Checkout = () => {
+const Checkout = () => {
   const [view, setView] = useState(checkoutPageView.INITIAL);
   const [formData, setFormData] = useState({
     email: "",
@@ -80,3 +79,5 @@ export const Checkout = () => {
     </BaseLayout>
   );
 };
+
+export default Checkout;

@@ -1,9 +1,9 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom/client";
+import { Checkout } from "./pages";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { routes } from "./constants/routes";
 import "./index.css";
-import { Checkout } from "./pages/Checkout";
 
 const router = createBrowserRouter([
   {
