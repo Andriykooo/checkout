@@ -1,13 +1,15 @@
 {
   "files": {
     "main.css": "/checkout/static/css/main.c060122f.css",
-    "main.js": "/checkout/static/js/main.7ee2a912.js",
+    "main.js": "/checkout/static/js/main.e165388c.js",
+    "static/media/logo-blue.png": "/checkout/static/media/logo-blue.07c890a68d17d6164a39.png",
+    "static/media/product.jpeg": "/checkout/static/media/product.5e66a983bd5570da53d0.jpeg",
     "index.html": "/checkout/index.html",
     "main.c060122f.css.map": "/checkout/static/css/main.c060122f.css.map",
-    "main.7ee2a912.js.map": "/checkout/static/js/main.7ee2a912.js.map"
+    "main.e165388c.js.map": "/checkout/static/js/main.e165388c.js.map"
   },
   "entrypoints": [
     "static/css/main.c060122f.css",
-    "static/js/main.7ee2a912.js"
+    "static/js/main.e165388c.js"
   ]
 }
