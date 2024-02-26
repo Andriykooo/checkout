@@ -31,7 +31,7 @@ body {
   display: inline-block;
   width: auto;
   padding: 0 20px 0 10px;
-  background: url("../public/images/right-arrow.jpg") no-repeat right 5px;
+  background: url("./assets/images/right-arrow.jpg") no-repeat right 5px;
 }
 .cus-breadcrumb ul li:first-child {
   padding-left: 0;
@@ -397,7 +397,7 @@ body {
   display: inline-block;
 }
 .discount-code-btn {
-  background: url("../public/images/icon-tag.png") no-repeat 10px center #5c528f;
+  background: url("./assets/images/icon-tag.png") no-repeat 10px center #5c528f;
   background-size: 16px;
   color: #fff;
   padding: 8px 32px 8px 32px;

@@ -1,10 +1,4 @@
-import { Link } from "react-router-dom";
-import { checkoutPageView } from "../../../constants/checkout";
-
 const PaymentView = ({ toggleView }) => {
-  const handleToggleView = () => {
-    toggleView(checkoutPageView.INITIAL);
-  };
   return (
     <>
       <div className="payment-top w-100 d-block" data-testid="payment">
@@ -385,7 +379,7 @@ const PaymentView = ({ toggleView }) => {
       </div>
       <div className="btn-row w-100 d-flex justify-content-between">
         <div className="back-link">
-          <a href="#" onClick={handleToggleView}>
+          <a href="#" onClick={toggleView}>
             <svg
               focusable="false"
               aria-hidden="true"

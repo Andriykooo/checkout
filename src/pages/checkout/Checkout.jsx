@@ -1,82 +1,42 @@
-import { useState } from "react";
-import Breadcrumb from "../../components/Breadcrumb/Breadcrumb";
-import Logo from "../../components/Logo/Logo";
-import { Discount, InitialView, PaymentView } from "../../containers";
-import { BaseLayout, LeftSlide, RightSlide } from "../../layouts";
-import { checkoutPageView } from "../../constants/checkout";
-import { countries } from "../../constants/countries";
+import { Breadcrumb, Logo } from "../../components";
+import CheckoutContainer from "./containers/CheckoutContainer/CheckoutContainer";
+import DiscountContainer from "./containers/DiscountContainer/DiscountContainer";
+
+const breadcumbItems = [
+  {
+    id: 1,
+    title: "Shipping",
+    active: false,
+  },
+  { id: 2, title: "Payment", active: true },
+];
 
 const Checkout = () => {
-  const [view, setView] = useState(checkoutPageView.INITIAL);
-  const [formData, setFormData] = useState({
-    email: "",
-    country: countries[0].value,
-    firstName: "",
-    lastName: "",
-    address: "",
-    apartment: "",
-    city: "",
-    state: "",
-    zipCode: "",
-    phone: "",
-  });
-
-  const handleChnage = (e) => {
-    const { id, value } = e.target;
-
-    setFormData({ ...formData, [id]: value });
-  };
-
-  const toggleView = (view) => {
-    setView(view);
-  };
-
-  const breadcumbItems = [
-    {
-      id: 1,
-      title: "Shipping",
-      active: false,
-      onClick: () => toggleView(checkoutPageView.INITIAL),
-    },
-    { id: 2, title: "Payment", active: view === checkoutPageView.PAYMENT },
-  ];
-
   return (
-    <BaseLayout>
-      <div className="mobile-data w-100 d-block d-lg-none">
-        <Logo className="m-auto d-block" />
-        <Breadcrumb items={breadcumbItems} />
-      </div>
-      <div className="d-flex flex-wrap w-100">
-        <RightSlide>
-          <Discount />
-        </RightSlide>
-        <LeftSlide>
-          <Logo />
+    <div id="wrapper w-100 d-block">
+      <div className="container small-container">
+        <div className="mobile-data w-100 d-block d-lg-none">
+          <Logo className="m-auto d-block" />
           <Breadcrumb items={breadcumbItems} />
-          {view === checkoutPageView.INITIAL && (
-            <InitialView
-              toggleView={toggleView}
-              formData={formData}
-              handleChnage={handleChnage}
-            />
-          )}
-          {view === checkoutPageView.PAYMENT && (
-            <PaymentView
-              toggleView={toggleView}
-              formData={formData}
-              handleChnage={handleChnage}
-            />
-          )}
-          <div className="checkout-footer-link w-100 d-block">
-            <a href="#">Refund policy</a>
-            <a href="#">Shipping policy</a>
-            <a href="#">Privacy policy </a>
-            <a href="#">Terms of service</a>
+        </div>
+        <div className="d-flex flex-wrap w-100">
+          <div className="right-side flex-auto order-lg-1">
+            <DiscountContainer />
           </div>
-        </LeftSlide>
+          <div className="left-side flex-auto order-lg-0">
+            <Logo />
+            <Breadcrumb items={breadcumbItems} />
+            <CheckoutContainer />
+            <div className="checkout-footer-link w-100 d-block">
+              <a href="#">Refund policy</a>
+              <a href="#">Shipping policy</a>
+              <a href="#">Privacy policy </a>
+              <a href="#">Terms of service</a>
+            </div>
+          </div>
+        </div>
       </div>
-    </BaseLayout>
+    </div>
   );
 };
 

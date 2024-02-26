@@ -1,49 +1,8 @@
-import { FormControl, FormSelect } from "../../../components";
-import { checkoutPageView } from "../../../constants/checkout";
-import { countries } from "../../../constants/countries";
-import { states } from "../../../constants/state";
+import { FormControl, FormSelect } from "../../../../components";
+import { countries } from "../../../../constants/countries";
+import { states } from "../../../../constants/state";
 
-const validateEmailRegex = /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/;
-
-const InitialView = ({ toggleView, formData, handleChnage }) => {
-  const handleToggleView = () => {
-    toggleView(checkoutPageView.PAYMENT);
-  };
-
-  const validateForm = () => {
-    if (!validateEmailRegex.test(formData.email)) {
-      return false;
-    }
-
-    if (!formData.lastName) {
-      return false;
-    }
-
-    if (!formData.address) {
-      return false;
-    }
-
-    if (!formData.city) {
-      return false;
-    }
-
-    if (!formData.state) {
-      return false;
-    }
-
-    if (!formData.zipCode) {
-      return false;
-    }
-
-    if (!formData.phone) {
-      return false;
-    }
-
-    return true;
-  };
-
-  const isValid = validateForm();
-
+const InitialView = ({ toggleView, formData, handleChange, isValid }) => {
   return (
     <>
       <div className="left-top-row w-100 d-flex flex-wrap justify-content-between">
@@ -55,7 +14,7 @@ const InitialView = ({ toggleView, formData, handleChnage }) => {
             placeholder="Email"
             className="checkout"
             value={formData.email}
-            onChange={handleChnage}
+            onChange={handleChange}
           />
           <div className="checkbox-row w-100 d-block">
             <label className="control control-checkbox">
@@ -76,7 +35,7 @@ const InitialView = ({ toggleView, formData, handleChnage }) => {
                   options={countries}
                   id="country"
                   className="checkout"
-                  onChange={handleChnage}
+                  onChange={handleChange}
                   value={formData.country}
                 />
               </div>
@@ -88,7 +47,7 @@ const InitialView = ({ toggleView, formData, handleChnage }) => {
                   id="firstName"
                   placeholder="First name (optional)"
                   className="checkout"
-                  onChange={handleChnage}
+                  onChange={handleChange}
                   value={formData.firstName}
                 />
               </div>
@@ -100,7 +59,7 @@ const InitialView = ({ toggleView, formData, handleChnage }) => {
                   id="lastName"
                   placeholder="Last name"
                   className="checkout"
-                  onChange={handleChnage}
+                  onChange={handleChange}
                   value={formData.lastName}
                 />
               </div>
@@ -112,7 +71,7 @@ const InitialView = ({ toggleView, formData, handleChnage }) => {
                   id="address"
                   placeholder="Address"
                   className="checkout"
-                  onChange={handleChnage}
+                  onChange={handleChange}
                   value={formData.address}
                 />
               </div>
@@ -124,7 +83,7 @@ const InitialView = ({ toggleView, formData, handleChnage }) => {
                   id="apartment"
                   placeholder="Apartment, suite, etc. (optional)"
                   className="checkout"
-                  onChange={handleChnage}
+                  onChange={handleChange}
                   value={formData.apartment}
                 />
               </div>
@@ -136,7 +95,7 @@ const InitialView = ({ toggleView, formData, handleChnage }) => {
                   id="city"
                   placeholder="City"
                   className="checkout"
-                  onChange={handleChnage}
+                  onChange={handleChange}
                   value={formData.city}
                 />
               </div>
@@ -146,7 +105,7 @@ const InitialView = ({ toggleView, formData, handleChnage }) => {
                 <FormSelect
                   id="state"
                   className="checkout"
-                  onChange={handleChnage}
+                  onChange={handleChange}
                   options={[
                     {
                       id: 0,
@@ -166,7 +125,7 @@ const InitialView = ({ toggleView, formData, handleChnage }) => {
                   id="zipCode"
                   placeholder="Zip code"
                   className="checkout"
-                  onChange={handleChnage}
+                  onChange={handleChange}
                   value={formData.zipCode}
                 />
               </div>
@@ -178,7 +137,7 @@ const InitialView = ({ toggleView, formData, handleChnage }) => {
                   id="phone"
                   placeholder="Phone"
                   className="checkout"
-                  onChange={handleChnage}
+                  onChange={handleChange}
                   value={formData.phone}
                 />
               </div>
@@ -188,7 +147,7 @@ const InitialView = ({ toggleView, formData, handleChnage }) => {
             <button
               data-testid="checkout-btn"
               className="checkout-btn"
-              onClick={handleToggleView}
+              onClick={toggleView}
               disabled={!isValid}
             >
               Continue to payment
