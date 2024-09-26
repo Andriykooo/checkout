@@ -11,7 +11,6 @@ const Breadcrumb = ({ items }) => {
               className={classNames({ active: item.active })}
               onClick={item?.onClick}
             >
-              sss
               {item.title}
             </li>
           );
